@@ -43,6 +43,21 @@ function App() {
       console.error ('error: ', error)
     })
   }
+  const handleBlur=(event)=>{
+    console.log(event.target.name,event.target.value)
+    if(event.target.name ==="Email"){
+     const isEmailValid=/\S+@\S+\.\S+/.test(event.target.value);
+    console.log(isEmailValid);
+    }
+    if(event.target.name==="password"){
+      const isPasswordValid=event.target.value.length >6;
+      console.log(isPasswordValid);
+    }
+     
+  }
+  const handleSubmit=()=>{
+
+  }
 
   return (
     <div className="App">
@@ -63,9 +78,14 @@ function App() {
         <p>Email address: {user.email}</p>
         <img src={user.photoURL} alt="" />
       </div>}
+      <form onSubmit={handleSubmit}>
       <h1>Our own Autentication</h1>
-      <input type="text" name="" id="" />
-      <input type="password" name="" id="" />
+      <input type="text" name="Email" onBlur={handleBlur} placeholder='your Email Address'  required/>
+      <br/>
+      <input type="password" name="password" onBlur={handleBlur} placeholder='your password' required/>
+      <br/>
+      <input type="submit" value="Submit" />
+      </form>
     </div>
   );
 }
