@@ -63,6 +63,9 @@ function App() {
         <p>Email address: {user.email}</p>
         <img src={user.photoURL} alt="" />
       </div>}
+      <h1>Our own Autentication</h1>
+      <input type="text" name="" id="" />
+      <input type="password" name="" id="" />
     </div>
   );
 }
